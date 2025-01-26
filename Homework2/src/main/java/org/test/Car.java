@@ -1,13 +1,6 @@
 package org.test;
 
 public class Car extends Vehicle {
-    public int lengthCar;
-    public int widthCar;
-    public int heightCar;
-    public int volumeCar;
-    public String typeWheel;
-    public String typeEngine;
-    public String colorCar;
 
     public Car(int lengthCar, int widthCar, int heightCar, String typeWheel, String typeEngine, String colorCar, String frameCar) {
         this.lengthCar = lengthCar;
@@ -40,6 +33,6 @@ public class Car extends Vehicle {
 
     @Override
     public String getFrame() {
-        return frameCar;
+        return frameCar + "-Лак";
     }
 }

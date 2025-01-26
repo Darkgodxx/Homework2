@@ -12,7 +12,7 @@ public class Main {
     public static String filePath = "D:\\car.txt";
 
     public static void main(String[] args) {
-        ArrayList<Car> carLib = readFromFile();
+        ArrayList<Vehicle> carLib = readFromFile();
         Student student = new Student("Саша", "Пронюшкин", "QA Enginner");
         Scanner scanner = new Scanner(System.in);
         boolean cheakerMenu = true;
@@ -22,7 +22,7 @@ public class Main {
             System.out.println("2. - Механический автомобиль");
             System.out.println("3. - Автобус");
             System.out.println("4. - Грузовой автомобиль");
-            System.out.println("5. - Введите новые параметры транспортных средств\n");
+            System.out.println("5. - Введите новым параметры транспортных средства");
             int menu = scanner.nextInt();
             switch (menu) {
                 case 1:
@@ -47,6 +47,7 @@ public class Main {
                     System.out.println();
                     System.out.println("Заданное колличество мест в автобусе: " + seats);
                     System.out.println("Звук в автобусе: " + sound);
+                    System.out.println(carLib.toArray()[2]);
                     printMaterial(carLib.get(2));
                     System.out.println();
                     break;
@@ -56,11 +57,13 @@ public class Main {
                     System.out.println();
                     System.out.println("Заданное колличество мест в грузовом автомобиле: " + seats);
                     System.out.println("Звук в грузовом автомобиле: " + sound);
+                    System.out.println(carLib.toArray()[3]);
                     printMaterial(carLib.get(3));
                     System.out.println();
                     break;
                 case 5:
                     writeToFile();
+                    break;
                 case 6:
                     System.out.println();
                     student.printStudent();
@@ -92,15 +95,15 @@ public class Main {
     public static void writeToFile() {
         try {
             Scanner scanner = new Scanner(System.in);
-            String x;
+            String write;
             FileWriter fileWriter = new FileWriter(filePath);
             System.out.println("Введите параметры транспортного средства через пробел (Длинна, Ширина, Высота, " +
                     "Двигатель, Колеса, Цвет, Материал: ");
             do {
-                x = scanner.nextLine();
-                fileWriter.write(x + "\n");
+                write = scanner.nextLine();
+                fileWriter.write(write + "\n");
             }
-            while (!x.isEmpty());
+            while (!write.isEmpty());
             fileWriter.close();
         } catch (IOException e) {
             System.out.println("Error");
@@ -108,17 +111,27 @@ public class Main {
 
     }
 
-    public static ArrayList<Car> readFromFile() {
-        ArrayList<Car> carLibFromFile = new ArrayList<>();
+    public static ArrayList<Vehicle> readFromFile() {
+        ArrayList<Vehicle> carLibFromFile = new ArrayList<>();
         File file = new File(filePath);
         try {
             Scanner scanner = new Scanner(file);
-            while (scanner.hasNext()) {
-                String carString = scanner.nextLine();
-                String[] parsedCar = carString.split(" ");
-                carLibFromFile.add(new Car(Integer.parseInt(parsedCar[0]), Integer.parseInt(parsedCar[1]),
-                        Integer.parseInt(parsedCar[2]), parsedCar[3], parsedCar[4], parsedCar[5], parsedCar[6]));
-            }
+            String carString = scanner.nextLine();
+            String[] parsedCar = carString.split(" ");
+            carLibFromFile.add(new Car(Integer.parseInt(parsedCar[0]), Integer.parseInt(parsedCar[1]),
+                    Integer.parseInt(parsedCar[2]), parsedCar[3], parsedCar[4], parsedCar[5], parsedCar[6]));
+            carString = scanner.nextLine();
+            parsedCar = carString.split(" ");
+            carLibFromFile.add(new Car(Integer.parseInt(parsedCar[0]), Integer.parseInt(parsedCar[1]),
+                    Integer.parseInt(parsedCar[2]), parsedCar[3], parsedCar[4], parsedCar[5], parsedCar[6]));
+            carString = scanner.nextLine();
+            parsedCar = carString.split(" ");
+            carLibFromFile.add(new Bus(Integer.parseInt(parsedCar[0]), Integer.parseInt(parsedCar[1]),
+                    Integer.parseInt(parsedCar[2]), parsedCar[3], parsedCar[4], parsedCar[5], parsedCar[6]));
+            carString = scanner.nextLine();
+            parsedCar = carString.split(" ");
+            carLibFromFile.add(new Truck(Integer.parseInt(parsedCar[0]), Integer.parseInt(parsedCar[1]),
+                    Integer.parseInt(parsedCar[2]), parsedCar[3], parsedCar[4], parsedCar[5], parsedCar[6]));
         } catch (IOException e) {
             System.out.println("Sorry, cannot read from file");
         }
