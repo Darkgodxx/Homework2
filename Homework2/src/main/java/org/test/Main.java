@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    public static int seats;
-    public static String sound;
     public static String filePath = "D:\\car.txt";
 
     public static void main(String[] args) {
@@ -28,37 +26,29 @@ public class Main {
                 case 1:
                     writeSeats(carLib.getFirst());
                     writeSound(carLib.getFirst());
-                    System.out.println("Заданное колличество мест в электро автомобиле: " + seats);
-                    System.out.println("Звук электро автомобиля: " + sound);
                     System.out.println(carLib.toArray()[0]);
-                    printMaterial(carLib.getFirst());
+                    printProperticeVehicle(carLib.getFirst());
                     break;
                 case 2:
                     writeSeats(carLib.get(1));
                     writeSound(carLib.get(1));
-                    System.out.println("Заданное колличество мест в механическом автомобиле: " + seats);
-                    System.out.println("Звук в механическом автомобиле: " + sound);
                     System.out.println(carLib.toArray()[1]);
-                    printMaterial(carLib.get(1));
+                    printProperticeVehicle(carLib.get(1));
                     break;
                 case 3:
                     writeSeats(carLib.get(2));
                     writeSound(carLib.get(2));
                     System.out.println();
-                    System.out.println("Заданное колличество мест в автобусе: " + seats);
-                    System.out.println("Звук в автобусе: " + sound);
                     System.out.println(carLib.toArray()[2]);
-                    printMaterial(carLib.get(2));
+                    printProperticeVehicle(carLib.get(2));
                     System.out.println();
                     break;
                 case 4:
                     writeSeats(carLib.get(3));
                     writeSound(carLib.get(3));
                     System.out.println();
-                    System.out.println("Заданное колличество мест в грузовом автомобиле: " + seats);
-                    System.out.println("Звук в грузовом автомобиле: " + sound);
                     System.out.println(carLib.toArray()[3]);
-                    printMaterial(carLib.get(3));
+                    printProperticeVehicle(carLib.get(3));
                     System.out.println();
                     break;
                 case 5:
@@ -73,8 +63,10 @@ public class Main {
         }
     }
 
-    public static void printMaterial(Vehicle vehicles) {
-        System.out.println("Материал транспортного средства: " + vehicles.getFrame());
+    public static void printProperticeVehicle(Vehicle vehicle) {
+        System.out.println("Материал транспортного средства: " + vehicle.getFrame());
+        System.out.println("Заданное колличество мест в транспортном средстве: " + vehicle.getNuberseats());
+        System.out.println("Звук в в транспортном средстве: " + vehicle.getSounds());
         System.out.println();
     }
 
@@ -82,14 +74,14 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите колличество мест для транспортного средства: ");
         int inputSeats1 = scanner.nextInt();
-        seats = vehicle.getNuberseats(inputSeats1);
+        vehicle.setNuberseats(inputSeats1);
     }
 
     public static void writeSound(Vehicle vehicle) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите звук транспортного средства: ");
         String inputSeats1 = scanner.nextLine();
-        sound = vehicle.getSounds(inputSeats1);
+        vehicle.setSounds(inputSeats1);
     }
 
     public static void writeToFile() {

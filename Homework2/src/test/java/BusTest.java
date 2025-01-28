@@ -11,7 +11,8 @@ public class BusTest {
     @Test
     public void test1() {
         Car car = new Car(13, 14, 15, "Летняя", "Мех", "Зеленый", "Алюминий");
-        Assert.assertTrue(0 < car.getNuberseats(-2), "Колличество мест не может быть отрицательным");
+        car.setNuberseats(-2);
+        Assert.assertTrue(0 < car.getNuberseats(), "Колличество мест не может быть отрицательным");
     }
     @Test
     public void test2() {

@@ -19,6 +19,15 @@ public class Truck extends Vehicle {
                 "\nХарактеристики автмобиля: " + "\nДвигатель автомобиля: " + typeEngine + "\nКолеса автомобиля " +
                 typeWheel + "\nЦвет автомобиля: " + colorCar;
     }
+    @Override
+    public void setNuberseats(int numberOfseats) {
+        this.numberOfseats = numberOfseats;
+    }
+
+    @Override
+    public void setSounds(String sounds) {
+        this.sounds = sounds;
+    }
 
     @Override
     public String getFrame() {
@@ -26,12 +35,12 @@ public class Truck extends Vehicle {
     }
 
     @Override
-    public int getNuberseats(int numberOfseats) {
+    public int getNuberseats() {
         return numberOfseats / 2;
     }
 
     @Override
-    public String getSounds(String sounds) {
+    public String getSounds() {
         return sounds;
     }
 }

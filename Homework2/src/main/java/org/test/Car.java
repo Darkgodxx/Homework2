@@ -22,12 +22,22 @@ public class Car extends Vehicle {
     }
 
     @Override
-    public int getNuberseats(int numberOfseats) {
+    public void setNuberseats(int numberOfseats) {
+        this.numberOfseats = numberOfseats;
+    }
+
+    @Override
+    public void setSounds(String sounds) {
+        this.sounds = sounds;
+    }
+
+    @Override
+    public int getNuberseats() {
         return numberOfseats;
     }
 
     @Override
-    public String getSounds(String sounds) {
+    public String getSounds() {
         return sounds;
     }
 

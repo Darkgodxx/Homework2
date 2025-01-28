@@ -16,13 +16,15 @@ public class CarTest {
     public void test1() {
         String sounds = "Туту";
         Car car = new Car(13, 14, 15, "Зимняя", "Электро", "Красный", "Метал");
-        Assert.assertEquals(car.getSounds("Туту"), sounds);
+        car.setSounds("Туту");
+        Assert.assertEquals(car.getSounds(), sounds);
     }
 
     @Test
     public void test2() {
-        int numberSeaats = 2;
+        int numberSeaats = 13;
         Car car = new Car(13, 14, 15, "Зимняя", "Электро", "Красный", "Метал");
-        Assert.assertEquals(car.getNuberseats(2), numberSeaats);
+        car.setNuberseats(13);
+        Assert.assertEquals(car.getNuberseats(), numberSeaats);
     }
 }

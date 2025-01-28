@@ -20,7 +20,8 @@ public class TruckTest {
     public void test2() {
         int numberSeaats = 2;
         Car car = new Car(13, 14, 15, "Зимняя", "Электро", "Красный", "Метал");
-        Assert.assertEquals(car.getNuberseats(2), numberSeaats);
+        car.setNuberseats(2);
+        Assert.assertEquals(car.getNuberseats(), numberSeaats);
     }
 }
 
