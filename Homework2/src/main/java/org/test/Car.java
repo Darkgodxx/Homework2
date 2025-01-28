@@ -38,7 +38,7 @@ public class Car extends Vehicle {
 
     @Override
     public String getSounds() {
-        return sounds;
+        return "Очень Тихо: " + sounds;
     }
 
     @Override

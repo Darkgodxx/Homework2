@@ -41,6 +41,6 @@ public class Bus extends Vehicle {
 
     @Override
     public String getSounds() {
-        return sounds;
+        return "Очень Громко: " + sounds;
     }
 }

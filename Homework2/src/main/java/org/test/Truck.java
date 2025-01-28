@@ -41,6 +41,6 @@ public class Truck extends Vehicle {
 
     @Override
     public String getSounds() {
-        return sounds;
+        return "Гулом: " + sounds;
     }
 }
